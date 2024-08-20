@@ -1,0 +1,73 @@
+<mat-toolbar color="primary">
+  <span> Employee Management App</span>
+  <span class="example-spacer"></span>
+ </mat-toolbar>
+ <div class="example-container">
+  <h1> {{buttonText}}</h1>
+    <div class="form-container">
+      <form [formGroup]="employeeForm" (submit)="submit()">
+        <mat-form-field class="form-field" appearance="outline">
+          <mat-label> First Name
+          </mat-label>
+          <input matInput formControlName="firstName" required>
+        </mat-form-field>
+                
+        <mat-form-field class="form-field" appearance="outline">
+          <mat-label> Last  Name
+          </mat-label>
+          <input matInput formControlName="lastName" required>
+        </mat-form-field>
+        
+        <mat-form-field class="form-field" appearance="outline">
+          <mat-label> Email
+          </mat-label>
+          <input matInput formControlName="email" required type="email">
+        </mat-form-field>
+        
+        <mat-form-field class="form-field" appearance="outline">
+          <mat-label> Date Of Birth
+          </mat-label>
+          <input matInput [matDatepicker]="picker" required formControlName="dob">
+          <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
+          <mat-datepicker #picker></mat-datepicker>
+        </mat-form-field>
+        
+        <mat-form-field class="form-field" appearance="outline">
+          <mat-label> Gender
+          </mat-label>
+          <mat-select>
+            <mat-option *ngFor="let gender of genders" [value]="selectedGender">
+              {{gender}}
+            </mat-option>
+          </mat-select>
+          <input matInput formControlName="gender" required >
+        </mat-form-field>
+        
+        <mat-form-field class="form-field" appearance="outline">
+          <mat-label> Education
+          </mat-label>
+          <input matInput formControlName="education" required>
+        </mat-form-field>
+        
+        <mat-form-field class="form-field" appearance="outline">
+          <mat-label> Company
+          </mat-label>
+          <input matInput formControlName="company" required>
+        </mat-form-field>
+        
+        <mat-form-field class="form-field" appearance="outline">
+          <mat-label> Experience
+          </mat-label>
+          <input matInput formControlName="experience" required type="number">
+        </mat-form-field>
+        
+        <mat-form-field class="form-field" appearance="outline">
+          <mat-label> Salary 
+          </mat-label>
+          <input matInput formControlName="salary" required type="number">
+        </mat-form-field>
+        
+        <button mat-raised-button color="primary" type="submit" >{{buttonText}}</button>
+      </form>
+    </div>
+  </div>
